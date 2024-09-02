@@ -8,4 +8,5 @@ public interface jokeService {
     jokeResponse getCurrentTypes();
 
     jokeResponse getJokeType(String jokeType);
+
 }
