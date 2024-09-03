@@ -4,6 +4,8 @@ package com.example.joke.domain;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.lang.reflect.Array;
+
 @Getter
 @Setter
 public class jokeResponse {

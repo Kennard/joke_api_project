@@ -12,7 +12,7 @@ public class jokeServiceImpl implements jokeService {
     @Override
     public jokeResponse getCurrentJoke() {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/random", jokeResponse.class);
+        return restTemplate.getForObject("https://official-joke-api.appspot.com/random_joke", jokeResponse.class);
     }
 
     @Override
@@ -27,6 +27,11 @@ public class jokeServiceImpl implements jokeService {
         return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/"+ jokeType +"/random", jokeResponse.class);
     }
 
-
+    // Just a test of an additional endpoint
+    @Override
+    public jokeResponse getJokeNum(Integer jokeNum) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/random/"+ jokeNum, jokeResponse.class);
+    }
 
 }

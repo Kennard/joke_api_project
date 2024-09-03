@@ -28,5 +28,10 @@ private jokeService JokeService;
         return JokeService.getJokeType(jokeType);
     }
 
+    @GetMapping("/joke/{jokeNum}")
+    public jokeResponse getJokeNumPathVar(@PathVariable Integer jokeNum) {
+        return JokeService.getJokeNum(jokeNum);
+    }
+
 
 }

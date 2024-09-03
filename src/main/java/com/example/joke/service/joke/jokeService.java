@@ -9,4 +9,5 @@ public interface jokeService {
 
     jokeResponse getJokeType(String jokeType);
 
+    jokeResponse getJokeNum(Integer jokeNum);
 }
