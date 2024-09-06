@@ -1,7 +1,7 @@
 package com.example.joke.controller;
 
 import com.example.joke.domain.jokeResponse;
-import com.example.joke.service.joke.jokeService;
+import com.example.joke.service.joke.JokeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,27 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class jokeController {
 
 @Autowired
-private jokeService JokeService;
+private JokeService jokeService;
 
     @GetMapping("/random_joke")
     public jokeResponse getJokeSec(){
-        return JokeService.getCurrentJoke();
+        return jokeService.getCurrentJoke();
     }
 
     @GetMapping("/types")
-    public jokeResponse getJokeTypes(){
-        return JokeService.getCurrentTypes();
+    public jokeResponse getJokeTypeList(){
+        return jokeService.getCurrentTypes();
     }
 
-    @GetMapping("/type/{jokeType}")
-    public jokeResponse getJokeTypePathVar(@PathVariable String jokeType) {
-        return JokeService.getJokeType(jokeType);
+    @GetMapping("/rand/{jokeType}")
+    public jokeResponse getJokeTypePath(@PathVariable String jokeType) {
+        return jokeService.getJokeType(jokeType);
     }
-
-    @GetMapping("/joke/{jokeNum}")
-    public jokeResponse getJokeNumPathVar(@PathVariable Integer jokeNum) {
-        return JokeService.getJokeNum(jokeNum);
-    }
-
 
 }

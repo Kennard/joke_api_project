@@ -2,12 +2,8 @@ package com.example.joke.service.joke;
 
 import com.example.joke.domain.jokeResponse;
 
-public interface jokeService {
+public interface JokeService {
     jokeResponse getCurrentJoke();
-
     jokeResponse getCurrentTypes();
-
     jokeResponse getJokeType(String jokeType);
-
-    jokeResponse getJokeNum(Integer jokeNum);
 }
