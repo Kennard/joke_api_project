@@ -5,6 +5,7 @@ import com.example.joke.service.joke.JokeService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 
 @Service
 public class jokeServiceImpl implements JokeService {
@@ -16,7 +17,7 @@ public class jokeServiceImpl implements JokeService {
     }
 
     @Override
-    public jokeResponse getCurrentTypes() {
+    public jokeResponse getTypesList() {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject("https://official-joke-api.appspot.com/types", jokeResponse.class);
     }
@@ -24,7 +25,14 @@ public class jokeServiceImpl implements JokeService {
     @Override
     public jokeResponse getJokeType(String jokeType) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/"+jokeType+"/random", jokeResponse.class);
+        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/" + jokeType + "/random", jokeResponse.class);
+    }
+
+    // EXTRA Grab joke by id --  Use endpoint /jokes/:id
+    @Override
+    public jokeResponse getJokeID(String idNum) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/"+ idNum, jokeResponse.class);
     }
 
 }

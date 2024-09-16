@@ -4,6 +4,7 @@ import com.example.joke.domain.jokeResponse;
 
 public interface JokeService {
     jokeResponse getCurrentJoke();
-    jokeResponse getCurrentTypes();
+    jokeResponse getTypesList();
     jokeResponse getJokeType(String jokeType);
+    jokeResponse getJokeID(String idNum);
 }

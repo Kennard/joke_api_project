@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+
 @RestController
 public class jokeController {
 
@@ -19,13 +21,20 @@ private JokeService jokeService;
     }
 
     @GetMapping("/types")
-    public jokeResponse getJokeTypeList(){
-        return jokeService.getCurrentTypes();
+    public jokeResponse getJokeTypesList(){
+        return jokeService. getTypesList();
     }
 
-    @GetMapping("/rand/{jokeType}")
+    @GetMapping("/type/{jokeType}")
     public jokeResponse getJokeTypePath(@PathVariable String jokeType) {
         return jokeService.getJokeType(jokeType);
     }
+
+    @GetMapping("/types/{idNum}")
+    public jokeResponse getById(@PathVariable String idNum){
+        return jokeService.getJokeID(idNum);
+    }
+
+
 
 }
